@@ -3,6 +3,7 @@ import Tippy from '@tippyjs/react/';
 import 'tippy.js/dist/tippy.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleQuestion, faCloudUpload, faCoins, faEllipsisVertical, faGear, faKeyboard, faLanguage, faSignOut, faUser } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 
 import Button from '~/components/Button';
@@ -12,6 +13,8 @@ import Menu from '~/components/Popper/Menu';
 import { InboxIcon, MessageIcon } from '~/components/Icons';
 import Image from '~/components/Image';
 import Search from '../Search';
+import routesConfig from '~/config/routes';
+
 const cx = classNames.bind(styles)
 
 const MENU_ITEMS = [
@@ -91,7 +94,7 @@ function Header() {
     return (
         <header className={cx('wraper')}>
             <div className={cx('inner')}>
-                <img src={images.logo} alt="tiktok" />
+                <Link to={routesConfig.home} className={cx('logo-link')}><img src={images.logo} alt="tiktok" /></Link>
 
                 {/* Search */}
                 <Search />

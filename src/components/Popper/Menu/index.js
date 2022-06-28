@@ -9,7 +9,7 @@ import { useState } from "react";
 
 const cx = classNames.bind(styles)
 const defaultFn = () => { }
-function Menu({ children, items = [], onChange = defaultFn }) {
+function Menu({ children, items = [], hideOnClick = false, onChange = defaultFn }) {
 
     const [history, setHistory] = useState([{ data: items }])
 
@@ -39,6 +39,7 @@ function Menu({ children, items = [], onChange = defaultFn }) {
             delay={[0, 500]}
             placement='bottom-end'
             offset={[12, 8]}
+            hideOnClick={hideOnClick}
             render={(attrs) => (
                 <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
                     <PopperWrapper className={cx('menu-popper')}>
